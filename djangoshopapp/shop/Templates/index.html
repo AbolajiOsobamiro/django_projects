@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dis Shop</title>
+</head>
+<body>
+    <div>
+        <thead><a href="appliances.html">Appliances</a></thead>
+        <thead><a href="computing.html">Computing</a></thead>
+        <thead><a href="fashion.html">Fashion</a></thead>
+        <thead><a href="gaming.html">Gaming</a></thead>
+        <thead><a href="electronics.html">Electronics</a></thead>
+        <thead><a href="phonesandtablets.html">Phones and Tablets</a></thead>
+        <thead><a href="sellerspage.html">For Traders</a></thead>
+        <thead><a href="supermarket.html">Supermarket</a></thead>
+        <thead><a href="categories.html">Other Categories</a></thead>
+        <thead><a href="signup.html">Register</a></thead>
+        {% if user.is_authenticated %}
+        </thead>
+        <thead><a href="/logout">Log out</a></thead>
+        <thead><a href="mycart.html">My cart</a></thead>
+        {% else %}
+        <thead><a href="login.html">Log in</a></thead>
+        {% endif%}
+  
+    </div>
+
+    <div>
+        <a href="appliances.html"><h1>Appliances</h1></a>
+        <table>
+            {% for inst in instance1 reversed %}
+            <div>
+                <tr>
+                <td><a href="{{inst.file.url}}">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.title}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+    </div>
+
+    <div>
+        <a href="computing.html"><h1>Computing</h1></a>
+            <table>
+                {% for inst in instance2 reversed %}
+                <div>
+                    <tr>
+                    <td><a href="{{inst.file.url}}">
+                        <img src="{{inst.image.url}}" width=200 height=200>
+                        </a></td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>{{inst.title}}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+    </div>
+
+    <div>
+        <a href="fashion.html"><h1>Fashion</h1></a>
+            <table>
+                {% for inst in instance3 reversed %}
+                <div>
+                    <tr>
+                    <td><a href="{{inst.file.url}}">
+                        <img src="{{inst.image.url}}" width=200 height=200>
+                        </a></td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>{{inst.title}}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+    </div>
+
+    <div>
+        <a href="gaming.html"><h1>Gaming</h1></a>
+            <table>
+                {% for inst in instance4 reversed %}
+                <div>
+                    <tr>
+                    <td><a href="{{inst.file.url}}">
+                        <img src="{{inst.image.url}}" width=200 height=200>
+                        </a></td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>{{inst.title}}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+    </div>
+
+
+    <div>
+        <a href="electronics.html"><h1>Electronics</h1></a>
+            <table>
+                {% for inst in instance5 reversed %}
+                <div>
+                    <tr>
+                    <td><a href="{{inst.file.url}}">
+                        <img src="{{inst.image.url}}" width=200 height=200>
+                        </a></td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>{{inst.title}}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+    </div>
+
+    <div>
+        <a href="phonesandtablets.html"><h1>Phones and Tablets</h1></a>
+            <table>
+                {% for inst in instance6 reversed %}
+                <div>
+                    <tr>
+                    <td><a href="{{inst.file.url}}">
+                        <img src="{{inst.image.url}}" width=200 height=200>
+                        </a></td>
+                    </tr>
+                </div>
+                <div>
+                    <tr>
+                        <td>{{inst.title}}</td>
+                    </tr>
+                </div>
+                {% endfor %}
+    </div>
+
+</body>
+</html>

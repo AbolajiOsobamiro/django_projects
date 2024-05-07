@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial and Scientific Search Results</title>
+</head>
+<body>
+    <thead><h2><a href="industrialandsientific.html">Back to Industrial and Scientific page</a></h2></thead>
+
+        {% if searched %}
+
+                    
+            {% if instances %}
+                <h1>We found {{number}} Industrial and Scientific stuff containing {{searched}}</h1>
+                    {% for inst in instances reversed %}
+                                <td><a href="">
+                                    <img src="{{inst.image.url}}" width=200 height=200>
+                                </a></td>
+                            <tbody>
+                                <div>
+                                    <tr>
+                                        <h3><td>{{inst.item_name}}</td></h3>
+                                    </tr>
+                                </div>
+                            </tbody>
+                    {% endfor %}
+            {% else %}
+                <h1>We found no Industrial and Scientific stuff containing {{searched}}</h1>
+                <h1>You can check out our other Industrial and Scientific stuff</h1>
+            {% endif %}
+
+        {% else %}
+
+        {% endif%}
+
+
+
+
+</body>
+</html>

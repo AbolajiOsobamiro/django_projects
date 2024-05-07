@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial and Scientific</title>
+</head>
+<body>
+    
+    <div>
+        <thead><a href="/">Home</a></thead>
+        <thead><a href="computing.html">Computing</a></thead>
+        <thead><a href="fashion.html">Fashion</a></thead>
+        <thead><a href="gaming.html">Gaming</a></thead>
+        <thead><a href="electronics.html">Electronics</a></thead>
+        <thead><a href="phonesandtablets.html">Phones and Tablets</a></thead>
+        <thead><a href="sellerspage.html">For Traders</a></thead>
+        <thead><a href="supermarket.html">Supermarket</a></thead>
+        <thead><a href="categories.html">Other Categories</a></thead>
+        <thead><a href="signup.html">Register</a></thead>
+        {% if user.is_authenticated %}
+        </thead>
+        <thead><a href="/logout">Log out</a></thead>
+        <thead><a href="mycart.html">My cart</a></thead>
+        {% else %}
+        <thead><a href="login.html">Log in</a></thead>
+        {% endif%}
+        <thead>
+            <form action="{% url 'indusearch' %}" method="POST">
+                {% csrf_token %}
+                <input class="form-control me-2" placeholder="Search Industrial and Scientific" 
+                type="search" aria-label="Search Industrial and Scientific" name="searched"> 
+                <button class="btn btn-outline-secondary" type="submit">Search Industrial and Scientific</button>
+            </form>
+        </thead>
+    </div>
+
+    <div>
+            {% for inst in instance reversed %}
+            <div>
+                <tr>
+                <td><a href="">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.item_name}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller's Page</title>
+</head>
+<body>
+
+    <div>
+        <thead><a href="/">Home</a></thead>
+        <thead><a href="computing.html">Computing</a></thead>
+        <thead><a href="fashion.html">Fashion</a></thead>
+        <thead><a href="gaming.html">Gaming</a></thead>
+        <thead><a href="electronics.html">Electronics</a></thead>
+        <thead><a href="phonesandtablets.html">Phones and Tablets</a></thead>
+        <thead><a href="sellerspage.html">For Traders</a></thead>
+        <thead><a href="supermarket.html">Supermarket</a></thead>
+        <thead><a href="categories.html">Other Categories</a></thead>
+        <thead><a href="signup.html">Register</a></thead>
+        {% if user.is_authenticated %}
+        </thead>
+        <thead><a href="/logout">Log out</a></thead>
+        {% else %}
+        <thead><a href="login.html">Log in</a></thead>
+        {% endif%}
+    </div>
+
+
+    <h1>
+        Which category does your product belong to?
+    </h1>
+    <h1>
+    <div>
+        <div>
+            <a href="appliancesupload.html">Appliances</a>
+        </div>
+        <div>
+            <a href="babyproductsupload.html">Baby Products</a>
+        </div>
+        <div>
+            <a href="booksmoviesandmusicupload.html">Books, Movies and Music</a>
+        </div>
+        <div>
+            <a href="computingupload.html">Computing</a>
+        </div>
+        <div>
+            <a href="electronicsupload.html">Electronics</a>
+        </div>
+        <div>
+            <a href="fashionupload.html">Fashion</a>
+        </div>
+        <div>
+            <a href="gaminguploads.html">Gaming</a>
+        </div>
+        <div>
+            <a href="gardenandoutdoorsuploads.html">Garden and Outdoors</a>
+        </div>
+        <div>
+            <a href="healthandbeautyupload.html">Health and Beauty</a>
+        </div>
+        <div>
+            <a href="homeandofficeupload.html">Home and office</a>
+        </div>
+        <div>
+            <a href="industrialandscientificupload.html">Industrial and Scientific</a>
+        </div>
+        <div>
+            <a href="musicalinstrumentsupload.html">Musical Instruments</a>
+        </div>
+        <div>
+            <a href="petsuppliesupload.html">Pet Supplies</a>
+        </div>
+        <div>
+            <a href="phonesandtabletsupload.html">Phones and Tablets</a>
+        </div>
+        <div>
+            <a href="sportinggoodsupload.html">Sporting Goods</a>
+        </div>
+        <div>
+            <a href="supermarketupload.html">Supermarket</a>
+        </div>
+    </div>
+    </h1>
+</body>
+</html>
