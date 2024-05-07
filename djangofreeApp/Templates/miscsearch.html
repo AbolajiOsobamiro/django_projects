@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Search Results</title>
+</head>
+<body>
+    <thead><a href="misc.html">Back to previous page</a></thead>
+
+        {% if searched %}
+
+                
+            {% if instances %}
+                <h1>We found {{number}} stuff(s) containing {{searched}}</h1>
+                    {% for inst in instances reversed %}
+                        {% if user.is_authenticated %}
+                            {% if inst.image %}
+                                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                                    <img src="{{inst.image.url}}" width=200 height=200>
+                                </a></td>
+                            {% else %}
+                                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                                    <img src="Templates/alien.bmp" width=200 height=200>
+                                </a></td>
+                            {% endif %}
+                        {% else %}
+                            {% if inst.image %}
+                                <td>
+                                    <img src="{{inst.image.url}}" width=200 height=200>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <img src="Templates/alien.bmp" width=200 height=200>
+                                </td>
+                            {% endif %}
+                        {% endif%}
+                            <tbody>
+                                <div>
+                                    <tr>
+                                        <h3><td>{{inst.title}}</td></h3>
+                                    </tr>
+                                </div>
+                            </tbody>
+                    {% endfor %}
+            {% else %}
+                <h1>We found no stuff(s) containing {{searched}}</h1>
+                <h1>You can check out our other stuffs</h1>
+            {% endif %}
+
+        {% else %}
+
+        {% endif%}
+
+
+
+</body>
+</html>

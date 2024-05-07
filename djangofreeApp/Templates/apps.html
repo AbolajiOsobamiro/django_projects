@@ -1,0 +1,101 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Softwares</title>
+</head>
+<body>
+    <header class="header">
+        <div class="items-right">
+                <thead><a href="/">Home</a></thead>
+
+
+                <thead><a href="books.html">Books</a></thead>
+
+
+                <thead><a href="movies.html">Videos</a></thead>
+
+
+                <thead><a href="misc.html">Others</a></thead>
+
+
+                <thead><a href="requests2.html">Pending Requests</a></thead>
+
+
+                <thead><a href="signup.html">Register</a></thead>
+
+            {% if user.is_authenticated %}
+
+                <thead>
+                    <a href="appUpload.html">Upload Softwares</a>
+                </thead>
+
+
+                <thead>
+                    <a href="appRequest.html">Request Softwares</a>
+                </thead>
+            
+
+                <thead><a href="/logout">Log out</a></thead>
+
+            {% else %}
+
+
+                <thead><a href="login.html">Log in</a></thead>
+            {% endif%}
+
+
+
+                <thead>
+                    <form action="{% url 'appsearch' %}" method="POST">
+                        {% csrf_token %}
+                        <input class="form-control me-2" placeholder="Search Softwares" 
+                        type="search" aria-label="Search Softwares" name="searched"> 
+                        <button class="btn btn-outline-secondary" type="submit">Search Softwares</button>
+                    </form>
+                </thead>
+              
+        
+    </header>
+    
+    <main>
+    <h1>Feel free to browse through our collection of softwares. You might find something you like</h1>
+    <div class="content">
+
+            {% for inst in instance reversed %}
+                <div class="item-box">
+                    <div class="image">
+                            {% if user.is_authenticated %}
+                                {% if inst.image %}
+                            <a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                                <img src="{{inst.image.url}}">
+                            </a>
+                                {% else %}
+                            <a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                                <img src="{% static 'alien.bmp' %}" />
+                            </a>
+                                {% endif %}
+                            {% else %}
+                                {% if inst.image %}
+                                <img src="{{inst.image.url}}">
+                                {% else %}
+                                <img src="{% static 'alien.bmp' %}" />
+                                {% endif %}
+                            {% endif%}
+
+                    </div> 
+                    <div class="description">
+                            <h3>{{inst.title}}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</main>
+    
+<h3>Osobamiro Abolaji</h3>
+<h3>&#169; 2023</h3>
+</body>
+</html>

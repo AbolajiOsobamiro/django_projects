@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pending Requests</title>
+</head>
+<body>
+    <div>
+        <thead><a href="/">Home</a></thead>
+        <thead><a href="books.html">Books</a></thead>
+        <thead><a href="movies.html">Videos</a></thead>
+        <thead><a href="misc.html">Others</a></thead>
+        <thead><a href="apps.html">Softwares</a></thead>
+        <thead><a href="signup.html">Register</a></thead>
+        {% if user.is_authenticated %}
+        <thead><a href="/logout">Log out</a></thead>
+        {% else %}
+        <thead><a href="login.html">Log in</a></thead>
+        {% endif%}
+        
+        
+    </div>
+    
+    <h1>These are the requests that have not yet been fulfilled. Please upload if you can!</h1>
+    <div>
+        <h1>Books</h1>
+        <table>
+            {% for inst in instance2 reversed %}
+            <div>
+                <tr>
+                    <h3><td>{{inst.requestname}}</td></h3>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <h1>Movies</h1>
+        <table>
+            {% for inst in instance3 reversed %}
+            <div>
+                <tr>
+                    <h3><td>{{inst.requestname}}</td></h3>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <h1>Software</h1>
+        <table>
+            {% for inst in instance1 reversed %}
+            <div>
+                <tr>
+                    <h3><td>{{inst.requestname}}</td></h3>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <h1>Others</h1>
+        <table>
+            {% for inst in instance4 reversed %}
+            <div>
+                <tr>
+                    <h3><td>{{inst.requestname}}</td></h3>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    {% if user.is_authenticated %}
+    <h1>You could help offset some of these requests by uploading</h1>
+    <a href="movieUpload.html"><h2>Upload Here!</h2></a> <br>
+    <h1>Also, feel free to request for any items not found here already</h1>
+    <a href="movieRequest.html"><h2>Request stuff</h2></a>
+    {% else %}
+    <h1>You could log-in or register to upload or request movies</h1>
+    <a href="login.html">Log in</a>
+    <a href="signup.html">Register</a>
+    {% endif%}
+</body>
+</html>

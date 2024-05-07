@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+<body>
+    <p><h2>Login</h2></p>
+    <style>
+        h3 {
+            color: red;
+        }
+    </style>
+    
+    {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form_row">
+            <label>Username:</label>
+            <br> <br> 
+            <input type="text" name="username" />
+        </div> <br>
+        <div class="form_row">
+            <label>Password: </label>
+            <br> <br>
+            <input type="password" name="password" />
+        </div> <br>
+        <input type="submit" value="Log in"/>
+        <p>If you do not have an account, consider signing up here.
+            <a href="signup.html"><input type="button" value="Sign Up!"></a>
+            </p>
+</body>
+</html>

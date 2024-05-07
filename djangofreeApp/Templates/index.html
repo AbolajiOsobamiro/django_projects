@@ -1,0 +1,188 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <div>
+        <thead><a href="books.html">Books</a></thead>
+        <thead><a href="movies.html">Videos</a></thead>
+        <thead><a href="misc.html">Others</a></thead>
+        <thead><a href="apps.html">Softwares</a></thead>
+        <thead><a href="requests2.html">Pending Requests</a></thead>
+        <thead><a href="signup.html">Register</a></thead>
+        {% if user.is_authenticated %}
+        </thead>
+        <thead><a href="/logout">Log out</a></thead>
+        {% else %}
+        <thead><a href="login.html">Log in</a></thead>
+        {% endif%}
+        
+    </div>
+    
+    <h1>Feel free to browse through our collection of stuff. You might find something you like</h1>
+    <div>
+        <a href="books.html"><h1>Books</h1></a>
+        <table>
+            {% for inst in instance2 reversed %}
+            <div>
+                <tr>
+                    {% if user.is_authenticated %}
+                        {% if inst.image %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                        {% else %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </a></td>
+                        {% endif %}
+                    {% else %}
+                        {% if inst.image %}
+                <td>
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </td>
+                        {% else %}
+                <td>
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </td>
+                        {% endif %}
+                    {% endif%}
+
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.title}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="movies.html"><h1>Movies</h1></a>
+        <table>
+            {% for inst in instance3 reversed %}
+            <div>
+                <tr>
+                    {% if user.is_authenticated %}
+                        {% if inst.image %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                        {% else %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </a></td>
+                        {% endif %}
+                    {% else %}
+                        {% if inst.image %}
+                <td>
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </td>
+                        {% else %}
+                <td>
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </td>
+                        {% endif %}
+                    {% endif%}
+
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.title}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="apps.html"><h1>Software</h1></a>
+        <table>
+            {% for inst in instance1 reversed %}
+            <div>
+                <tr>
+                    {% if user.is_authenticated %}
+                        {% if inst.image %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                        {% else %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </a></td>
+                        {% endif %}
+                    {% else %}
+                        {% if inst.image %}
+                <td>
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </td>
+                        {% else %}
+                <td>
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </td>
+                        {% endif %}
+                    {% endif%}
+
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.title}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <a href="misc.html"><h1>Others</h1></a>
+        <table>
+            {% for inst in instance4 reversed %}
+            <div>
+                <tr>
+                    {% if user.is_authenticated %}
+                        {% if inst.image %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </a></td>
+                        {% else %}
+                <td><a href="{{inst.file.url}}" download="{{inst.file.url}}">
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </a></td>
+                        {% endif %}
+                    {% else %}
+                        {% if inst.image %}
+                <td>
+                    <img src="{{inst.image.url}}" width=200 height=200>
+                </td>
+                        {% else %}
+                <td>
+                    <img src="Templates/alien.bmp" width=200 height=200>
+                </td>
+                        {% endif %}
+                    {% endif%}
+
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td>{{inst.title}}</td>
+                </tr>
+            </div>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <h1>You might also want to add to this growing collection of stuff</h1>
+    <h2>Go to the individual pages to request or upload stuff</h2>
+<h3>Osobamiro Abolaji</h3>
+<h3>&#169; 2023</h3>
+</body>
+</html>
